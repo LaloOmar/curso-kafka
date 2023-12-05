@@ -28,7 +28,7 @@ public class Dev4JThreadConsumer extends Thread {
 			while (!closed.get()) {
 				ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofMillis(100));
 				for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
-					log.info("patition = {},offset = {} ,key = {} , value = {}", consumerRecord.partition(),
+					log.debug("patition = {},offset = {} ,key = {} , value = {}", consumerRecord.partition(),
 							consumerRecord.offset(), consumerRecord.key(), consumerRecord.value());
 				}
 			}
